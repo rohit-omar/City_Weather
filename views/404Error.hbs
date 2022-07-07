@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./css/images/logo-icon.png" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Weather App</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,300;0,400;0,500;1,100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.header{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(95, 42, 238);
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    letter-spacing: 10px;
+}
+
+.containerP{
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container1{
+    height: 400px;
+    width: 600px;
+    border-radius: 5px;
+    /* overflow: hidden; */
+    color: #fff;
+    text-shadow: 3px 3px 10px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: left;
+}
+
+span{
+    color: rgb(1, 255, 208);
+}
+
+.container2 {
+    height: 400px;
+    width: 600px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 7px 7px 7px ;
+}
+
+.menu {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 70%
+}
+
+.container1 button{
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 3px 7px;
+}
+
+.container1 button:hover {
+    transform: scale(1.05);
+}
+
+.menu button{
+    border-radius: 5px;
+    border: none;
+    margin: auto;
+    height: 40px;
+    width: 100px;
+}
+
+.box{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('./images/BG-2-img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.city-name{
+    display: flex;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.display {
+    height: 50%;
+    width: 50%;
+    border: 0.5px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px;
+    
+}
+
+.details{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
+    z-index: 2;
+    text-shadow: 3px 3px 10px black;
+}
+
+.logo{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+
+
+.footer{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+#icons{
+    height: 25px;
+    width: 25px;
+}
+
+#weather-icon .fas {
+    font-size: 6rem;
+    animation: fas-anime 3s linear infinite alternate;
+}
+
+@keyframes fas-anime {
+    from{
+        transform: scale(0.8);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
+
+@media only screen and (max-width: 688px)  {
+    .display{
+        display: flex;
+        flex-direction: column;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="header">
+        <div class="title">City Weather</div>
+        <div class="menu">
+            <a href="/weather"><button>Weather</button></a>
+            <a href="/about"><button>About Me</button></a>
+        </div>
+      </div>
+      <div class="containerP">
+        <div class="container1">
+            <h1><span>404 Page Not Found</span></h1>
+            {{!-- <a href="/weather"><button></button></a> --}}
+        </div>
+    </div>
+      <!-- <form action="" class="city-name">
+        <h3>Enter City Name: </h3>
+        <input type="text">
+        <button>Submit</button>
+      </form> -->
+      <!-- <div class="display">
+        <div class="logo" id="weaCond">
+          <i
+            class="fas fa-solid fa-sun fa-6x"
+            id="weather-icon"
+            style="color: #f16406;"
+          ></i>
+        </div>
+        <div class="details">
+          <h2 class="location">
+            <i class="fa fa-street-view fa-lg" style="color: #ffffff"></i> {%city%},{%country%}
+          </h2>
+          <p id="date">WED | OCT 23 | 10:49 PM</p>
+          <h1 class="temp"><i class="fa-solid fa-sun-cloud"></i>{%tempval%}°C</h1>
+          <h3 class="tempmin_max">MIN 18{%tempmax%}°C | MAX {%tempmin%}°C</h3>
+        </div>
+      </div> -->
+      <div class="footer">
+        Created with <i class="fas fa-light fa-heart fa-2x" style="color: red"></i> By Rohit Omar
+      </div>
+    </div>
+    <script>
+      const date = document.getElementById('date');
+      let weaCond = document.getElementById('weaCond');
+      const   tempStatus = "{%tempStatus%}";
+
+      if(tempStatus=="Sunny"){
+        weaCond.innerHTML = "<i class='fas fa-light fa-cloud fa-6x' id='weather-icon'style='color: #f16406;'></i>";
+      } else if(tempStatus=="Clouds"){
+        weaCond.innerHTML = "<i class='fas fa-light fa-cloud fa-6x' id='weather-icon'style='color: #dfe4ea;'></i>";
+      } else if(tempStatus=="Rainy"){
+        weaCond.innerHTML = "<i class='fas fa-light fa-cloud-rain fa-6x' id='weather-icon'style='color: #a4b0be;'></i>";
+      } else {
+        weaCond.innerHTML = "<i class='fas fa-light fa-cloud fa-6x' id='weather-icon'style='color: #f16406;'></i>";
+      }
+
+      const getcurrentDay = ()=>{
+        const weekDay = new Array();
+        weekDay[0]="Sunday";
+        weekDay[1]="Monday";
+        weekDay[2]="Tuesday";
+        weekDay[3]="Wednesday";
+        weekDay[4]="Thursday";
+        weekDay[5]="Friday";
+        weekDay[6]="Saturday";
+        let currentTime = new Date();
+        let day1 = weekDay[currentTime.getDay()];
+        console.log(day1);
+        return day1;
+
+      };
+      // getcurrentDay();
+      const getCurrentTime = ()=> {
+        var months= ["January","February","March","April","May","June","July",
+            "August","September","October","November","December"];
+        var currenntDate = new Date;
+        var month = months[currenntDate.getMonth()];
+        var year = currenntDate.getFullYear();
+        var day = currenntDate.getDate();
+        var hours = currenntDate.getHours();
+        var mins = currenntDate.getMinutes();
+        let period="AM";
+        if(hours>11){
+          period="PM";
+          if(hours>12){
+            hours-=12;
+          }
+        }
+        if(mins<10){
+          mins="0"+mins;
+        }
+        return (`${month} ${day} | ${hours}:${mins} ${period}`)
+        // console.log(`${month} ${day} | ${hours}:${mins} ${period}`)
+      }
+      // getCurrentTime();
+      date.innerHTML = getcurrentDay() + " | " + getCurrentTime();
+      // date.innerHTML = getcurrentDay();
+
+    </script>
+  </body>
+</html>
